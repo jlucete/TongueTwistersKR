@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/main.css">
+
+
+
+    <title>간장공장 공장장</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+
+  <body>
+    <div class="main">
+      <div class="blank" style="height: 20vh"></div>
+      <div>
+        <img src="images/logo.png" alt="Logo" width="70">
+      </div>
+      <div>
+        <header id="main_title">간장공장 공장장</header>
+      </div>
+        <header id="sub_title">음성인식 잰말놀이</header>
+      <div id="challenge_button_div">
+        <button id="challenge_mode_button" class="button">도전 모드</button>
+      </div>
+      <div id="infinity_button_div">
+        <button id="infinity_mode_button" class="button">무한 모드</button>
+      </div>
+    </div>
+
+    <div class="challenge_mode">
+
+      <div class="logo">
+        <div>
+          <img src="images/logo.png" alt="Logo" Width="40">
+          <h id="logo_title">간장공장 공장장</h>
+        </div>
+        <div>
+          <h id="logo_mode">도전 모드</h>
+        </div>
+      </div>
+
+      <div class="blank" style= "height: 10vh"></div>
+      <div class="problem">
+        <div>
+          <h id="level">LEVEL 1</h>
+        </div>
+        <div style="padding-top: 2vh">
+          <h id="question">김서방네 지붕위에 콩깍지가 깐 콩깍지냐 안 깐 콩깍지냐?</h>
+        </div>
+        <div id="answer_div" style="padding-top: 4vh">
+          <span id="correct_answer" style="color: blue"></span>
+          <span id="wrong_answer" style="color: red"></span>
+          <span id="interim_answer" style="color: grey">위 문장을 소리내어 읽어 주세요</span>
+        </div>
+        <div id="time_block_div" style="padding-top: 10vh">
+          <div id="time_block"></div>
+        </div>
+      </div>
+
+      <div id="correct_div">
+        <button id="next_problem_button">다음 문제로</button>
+        <div id="circle"></div>
+      </div>
+      
+
+
+    </div>
+
+    <div class="infinity_mode">
+      <div class="logo">
+        <div>
+          <img src="images/logo.png" alt="Logo" Width="40">
+          <h id="logo_title">간장공장 공장장</h>
+        </div>
+        <div>
+          <h id="logo_mode">무한 모드</h>
+        </div>
+      </div>
+      <header>무한 모드</header>
+    </div>
+
+  </body>
+  <script src="src/main.js"></script>
+  <script src="src/recognition.js"></script>
+</html>

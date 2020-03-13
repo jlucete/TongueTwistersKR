@@ -1,0 +1,119 @@
+.main {
+  
+}
+
+body {
+  text-align: center;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.blank {
+  /*
+  height: 20vh;
+  */
+}
+
+#main_title {
+  position: relative;
+  width: 100%;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 300%;
+}
+
+#sub_title {
+  padding-top: 5px;
+  font-size: 100%;
+}
+
+#challenge_button_div {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+.button {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 120%;
+  width: 250px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: white;
+  outline: 0;
+}
+
+.button:active {
+  background-color: black;
+}
+
+.challenge_mode {
+  display: none;
+}
+
+.logo {
+  text-align: left;
+}
+
+#logo_title {
+  font-size: 30px;
+  vertical-align: top;
+}
+
+#logo_mode {
+  padding-left: 100px;
+}
+
+#level {
+  font-size: 25px;
+}
+
+#question {
+  font-size: 40px;
+}
+
+#answer_div {
+  font-size: 40px;
+}
+
+#time_block_div {
+  padding-left: 10vw;
+}
+
+#time_block {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 80vw;
+  height: 30px;
+  background-color: #595959;
+}
+
+#circle {
+  z-index: 1;
+  position: absolute;
+  top : 50%;
+  left : 50%;
+  width: 40vh;
+  height: 40vh;
+  border: 5px solid greenyellow;
+  -moz-border-radius: 20vh;
+  -webkit-border-radius: 20vh;
+  border-radius: 20vh;
+}
+
+#next_problem_button {
+  z-index: 2;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 120%;
+  width: 250px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: white;
+  outline: 0;
+}
+
+#next_problem_button:active {
+  background-color: black;
+}
+
+.infinity_mode {
+  display: none;
+}
