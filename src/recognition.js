@@ -4,9 +4,10 @@ var question_score;
 var in_game_score = 0;
 var next_timer;
 var timeLimit = 0;
-var currentTime = 0;
+var currentTime = 1000;
 var jsonLocation = 'data/sentences.json';
 var isFail = true;
+var isSucc = true;
 
 
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
@@ -57,7 +58,6 @@ function getCorrectStrIndex(inputStr, targetStr){
 */
   var lastCorrectInputStrIndex = -1;
   var lastCorrectTargetStrIndex = -1;
-  var isSuccess = true;
   var inputIndex = 0, targetIndex = 0;
   while (inputIndex < inputStr.length && targetIndex < targetStr.length) {
     if (special_characters.includes(inputStr[inputIndex])) {
@@ -104,6 +104,7 @@ function reset(){
     currentTime = timeLimit;
   });
   isFail = true;
+  isSucc = true;
   interim_answer.innerHTML = "위 문장을 소리내어 읽어주세요";
   correct_answer.innerHTML = "";
   wrong_answer.innerHTML = "";
@@ -130,20 +131,22 @@ function display_time_block() {
 }
 
 function success() {
-  console.log("success");
-  isFail = false;
-  clearInterval(timer);
-  $("#correct_div").show();
-  recognition.stop();
-  recognizing = false;
-  in_game_score += question.innerHTML.length*10;
-  current_score.innerHTML = in_game_score;
-  setTimeout(next, 1500);
-  
+  if(isSucc){
+    console.log("success");
+    isFail = false;
+    clearInterval(timer);
+    $("#correct_div").show();
+    recognition.stop();
+    recognizing = false;
+    in_game_score += question.innerHTML.length*10;
+    current_score.innerHTML = in_game_score;
+    setTimeout(next, 1500);
+  }
 }
 
 function fail() {
   if(isFail){
+    isSucc = false;
     recognition.stop();
     recognizing = false;
     console.log("fail");
