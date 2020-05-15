@@ -6,6 +6,8 @@ var next_timer;
 var timeLimit = 0;
 var currentTime = 0;
 var jsonLocation = 'data/sentences.json';
+var isFail = true;
+
 
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 
@@ -15,6 +17,10 @@ var recognition = new SpeechRecognition();
 recognition.continuous = true;
 recognition.interimResults = true;
 
+$(document).ready(function() {
+  recognition.start();
+  recognizing = true;
+})
 
 recognition.onresult = function (event) {
   var final = "";
@@ -97,6 +103,7 @@ function reset(){
     timeLimit = 300*data.sentences[randint].length;
     currentTime = timeLimit;
   });
+  isFail = true;
   interim_answer.innerHTML = "위 문장을 소리내어 읽어주세요";
   correct_answer.innerHTML = "";
   wrong_answer.innerHTML = "";
@@ -105,7 +112,9 @@ function reset(){
 
 function recog_start() {
   reset();
-  recognition.start();
+  if(!recognizing){
+    recognition.start();
+  }
   timer = setInterval(display_time_block, 41);
 }
 
@@ -122,9 +131,11 @@ function display_time_block() {
 
 function success() {
   console.log("success");
+  isFail = false;
   clearInterval(timer);
   $("#correct_div").show();
   recognition.stop();
+  recognizing = false;
   in_game_score += question.innerHTML.length*10;
   current_score.innerHTML = in_game_score;
   setTimeout(next, 1500);
@@ -132,11 +143,14 @@ function success() {
 }
 
 function fail() {
-  recognition.stop();
-  console.log("fail");
-  final_score.innerHTML = in_game_score + "점";
-  $(".game_mode").hide();
-  $("#result").show();
+  if(isFail){
+    recognition.stop();
+    recognizing = false;
+    console.log("fail");
+    final_score.innerHTML = in_game_score + "점";
+    $(".game_mode").hide();
+    $("#result").show();
+  }
 }
 
 function next() {
